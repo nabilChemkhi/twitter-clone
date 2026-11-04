@@ -1,5 +1,6 @@
 import { cacheLife } from "next/cache";
 import type { TweetsResponse } from "@/types/tweet";
+import TweetCard from "@/components/TweetCard";
 
 async function getTweets(): Promise<TweetsResponse> {
   "use cache";
@@ -15,14 +16,12 @@ export default async function Home() {
 
   return (
     <main className="max-w-2xl mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-4">Latest Tweets</h1>
-      <ul className="space-y-3">
+      <h1 className="text-2xl font-bold p-4">Latest Tweets</h1>
+      <section className="border-x border-t border-gray-200">
         {data.posts.map((tweet) => (
-          <li key={tweet.id} className="border-b pb-3">
-            {tweet.body}
-          </li>
+          <TweetCard key={tweet.id} tweet={tweet} />
         ))}
-      </ul>
+      </section>
     </main>
   );
 }
