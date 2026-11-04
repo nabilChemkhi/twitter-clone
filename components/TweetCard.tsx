@@ -23,7 +23,7 @@ export default function TweetCard({ tweet }: TweetCardProps) {
                     <p className="text-gray-800">{tweet.body}</p>
                 </Link>
 
-                <div className="flex flex-wrap gap-2 mt-2">git add .
+                <div className="flex flex-wrap gap-2 mt-2">
                     {tweet.tags.map((tag) => (
                         <span key={tag} className="text-sky-600 text-sm">
                             #{tag}
